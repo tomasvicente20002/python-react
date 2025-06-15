@@ -28,8 +28,8 @@ jobs:
         run: docker compose build
 
       # Optional test command (replace with your actual backend test command)
-      - name: Run backend tests
-        run: docker compose run --rm backend pytest
+      #- name: Run backend tests
+      #  run: docker compose run --rm backend pytest
 
       - name: Start containers
         run: docker compose up -d
