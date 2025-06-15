@@ -1,36 +1,31 @@
-import React, { useEffect, useState } from "react"
-import axios from "axios"
-import { toast, ToastContainer } from "react-toastify"
-import "react-toastify/dist/ReactToastify.css"
+import React, { useEffect, useState } from "react";
+import API from "@/axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-import { Card, CardHeader, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Skeleton } from "@/components/ui/skeleton"
+import { Card, CardHeader, CardContent } from "@/components/ui/Card";
+import { Button } from "@/components/ui/Button";
+import { Skeleton } from "@/components/ui/Skeleton";
 
 export default function Patients() {
-  const [patients, setPatients] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [patients, setPatients] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchPatients = async () => {
       try {
-        const token = localStorage.getItem("token")
-        const response = await axios.get("http://localhost:5000/patients", {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        })
-        setPatients(response.data)
+        const response = await API.get("/patients");
+        setPatients(response.data);
       } catch (error) {
-        toast.error("Erro ao carregar pacientes.")
-        console.error(error)
+        console.error("Erro ao buscar pacientes:", error);
+        toast.error("Não foi possível carregar os pacientes.");
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
+    };
 
-    fetchPatients()
-  }, [])
+    fetchPatients();
+  }, []);
 
   return (
     <div className="max-w-5xl mx-auto mt-8 px-4">
@@ -62,5 +57,5 @@ export default function Patients() {
 
       <ToastContainer />
     </div>
-  )
+  );
 }
