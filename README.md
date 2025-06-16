@@ -45,6 +45,9 @@ This repository contains the source code for the frontend of a web application b
 docker-compose up --build
 ```
 
+During the backend image build, `pytest -q` runs automatically to ensure all
+unit tests pass before the container is finalized.
+
 The application will be available at `http://localhost:3000` (or as configured).
 
 ### Without Docker
@@ -78,3 +81,13 @@ Check the `package.json` file for a complete list of dependencies.
 
 - To add new styles, update `tailwind.config.js`.
 - Build and Docker configurations are in `Dockerfile` and `docker-compose.yml`.
+
+## 🧪 Backend Tests
+
+Unit tests for the backend live in `backend/tests`. Run them with:
+
+```bash
+pytest
+```
+The backend's Dockerfile also runs these tests during image builds.
+

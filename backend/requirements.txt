@@ -5,3 +5,4 @@ redis
 flask-jwt-extended
 werkzeug
 flask-cors
+pytest

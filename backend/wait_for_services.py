@@ -1,7 +1,7 @@
 import time
 import redis
 from sqlalchemy import text
-from config import db
+from .config import db
 
 def wait_for_redis(url, max_retries=10, delay=3):
     for attempt in range(max_retries):

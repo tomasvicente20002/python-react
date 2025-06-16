@@ -1,4 +1,4 @@
-from config import db
+from .config import db
 from werkzeug.security import generate_password_hash, check_password_hash
 
 class Patient(db.Model):
