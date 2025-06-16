@@ -6,9 +6,10 @@ import Patients from "./pages/Patients";
 function App() {
   const [token, setToken] = useState(localStorage.getItem("access_token") || "");
 
-  const handleLogin = (jwt) => {
-    setToken(jwt);
-    localStorage.setItem("access_token", jwt);
+  const handleLogin = ({ access_token, refresh_token }) => {
+    setToken(access_token);
+    localStorage.setItem("access_token", access_token);
+    localStorage.setItem("refresh_token", refresh_token);
   };
 
   const handleLogout = () => {
