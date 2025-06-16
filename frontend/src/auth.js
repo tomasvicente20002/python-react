@@ -48,6 +48,6 @@ export const logout = () => {
   localStorage.removeItem("refresh_token");
 
   if (typeof window !== "undefined") {
-    window.location.href = "/login";
+    window.location.href = "/";
   }
 };
