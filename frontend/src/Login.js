@@ -1,4 +1,4 @@
-// src/pages/Login.js
+// src/Login.js
 import React, { useState } from "react";
 import API from "@/axios";
 import { useNavigate } from "react-router-dom";

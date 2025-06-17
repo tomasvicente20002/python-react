@@ -7,7 +7,11 @@ function Login({ onLogin }) {
   const login = async () => {
     try {
       const res = await axios.post("http://localhost:5000/login", credentials);
-      onLogin(res.data.access_token);
+      // Pass both tokens so the parent component can persist them
+      onLogin({
+        access_token: res.data.access_token,
+        refresh_token: res.data.refresh_token,
+      });
     } catch (err) {
       alert("Login failed");
     }

@@ -1,8 +1,8 @@
 from flask import Flask
-from routes import patient_routes
-from config import db, Config
+from .routes import patient_routes
+from .config import db, Config
 from flask_jwt_extended import JWTManager
-from wait_for_services import wait_for_db, wait_for_redis
+from .wait_for_services import wait_for_db, wait_for_redis
 from flask_cors import CORS
 
 app = Flask(__name__)
